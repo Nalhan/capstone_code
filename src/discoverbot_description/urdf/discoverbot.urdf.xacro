@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+
+
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="discoverbot">
+  <property name="M_PI" value="3.1415926535897931" />
+  <link name="db_base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://discoverbot_description/meshes/db_base_link.STL"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="db_art1_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://discoverbot_description/meshes/db_art1_link.STL"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 1.571"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+
+
+  </link>
+  <link name="db_art2_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://discoverbot_description/meshes/db_art2_link.STL"/>	
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+
+  </link>
+
+  <link name="db_art3_link" >
+    <visual>
+    	<geometry>
+      	  <mesh filename="package://discoverbot_description/meshes/db_art3_link.STL"/>
+	</geometry>
+      	<origin xyz="0 0 0" rpy="0 0 0"/>
+      	<material name="yellow">
+        <color rgba="1 1 0 1"/>
+        </material>
+    </visual>
+
+  </link>
+
+  <link name="db_art4_link">
+    <visual>
+      <geometry>
+	<mesh filename="package://discoverbot_description/meshes/db_art4_link.STL"/>
+      </geometry>
+      <origin xyz="-.003 .003 0" rpy="0 0 0"/>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+
+  </link>
+
+
+  <link name="db_art5_link">
+    <visual>
+      <geometry>
+	<mesh filename="package://discoverbot_description/meshes/db_art5_link.STL"/>        
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+
+  </link>
+
+  <link name="db_art6_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://discoverbot_description/meshes/db_art6_link.STL"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+
+  </link>
+
+  <joint name="db_art1_joint" type="revolute">
+    <parent link="db_base_link"/>
+    <child link="db_art1_link"/>
+    <origin xyz="0 0 .0962" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="1.0" lower="-${M_PI}" upper="${M_PI}" velocity="2.0"/>
+  </joint>
+
+  <joint name="db_art2_joint" type="revolute">
+    <parent link="db_art1_link"/>
+    <child link="db_art2_link"/>
+    <origin xyz="0 0 .07635" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="1.0" lower="-${M_PI/2}" upper="${M_PI/2}" velocity="2.0"/>
+  </joint>
+
+  <joint name="db_art3_joint" type="revolute">
+    <parent link="db_art2_link"/>
+    <child link="db_art3_link"/>
+    <origin xyz="0 0 .1500" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="1.0" lower="-${M_PI}" upper="${M_PI}" velocity="2.0"/>
+  </joint>
+
+  <joint name="db_art4_joint" type="revolute">
+    <parent link="db_art3_link"/>
+    <child link="db_art4_link"/>
+    <origin xyz="0 0 .1292" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="1.0" lower="-${M_PI}" upper="${M_PI}" velocity="2.0"/>
+  </joint>
+
+  <joint name="db_art5_joint" type="revolute">
+    <parent link="db_art4_link"/>
+    <child link="db_art5_link"/>
+    <origin xyz="0 0 0.08635" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="1.0" lower="-${M_PI/2}" upper="${M_PI/2}" velocity="2.0"/>
+  </joint>
+
+  <joint name="db_art6_joint" type="revolute">
+    <parent link="db_art5_link"/>
+    <child link="db_art6_link"/>
+    <origin xyz="0 0 .0220" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="1.0" lower="-${M_PI}" upper="${M_PI}" velocity="2.0"/>
+  </joint>
+
+</robot>
